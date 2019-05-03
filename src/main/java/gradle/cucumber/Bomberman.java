@@ -1,3 +1,5 @@
+package gradle.cucumber;
+
 public class Bomberman {
 
     public Celda celdaActual;
@@ -19,8 +21,8 @@ public class Bomberman {
         this.estado = estado;
     }
 
-    public Boolean isDead(){
-        return this.estado.isDead();
+    public Boolean estaMuerto(){
+        return this.estado.estaMuerto();
     }
 
     public boolean estaEnCeldaVacia() {
