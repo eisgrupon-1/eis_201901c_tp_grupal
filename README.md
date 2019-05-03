@@ -12,12 +12,12 @@ Ejercitar la escritura de código en ambientes colaborativos utilizando una meto
 
 ### Integrantes
 
-Nro | Nombre | Legajo | Mail
-----|--------|--------|------
-1   |        |        |
-2   |        |        |
-3   |        |        |
-4   |        |        |
+Nro | Nombre                | Legajo       | Mail
+----|-----------------------|--------------|---------
+1   |    Oscar Lescano      |              |
+2   |    Juan  Escalada     |              |
+3   |    Camila Pesci       |              |
+4   |    Matias Rodriguez   |              |
     
 ### Entrega
 
