@@ -7,4 +7,9 @@ public class Vivo extends Status {
     public Boolean estaMuerto() {
         return false;
     }
+
+    @Override
+    public  void moverACelda(Bomberman bomberman, Celda celda){
+        celda.interactuarCon(bomberman);
+    }
 }
