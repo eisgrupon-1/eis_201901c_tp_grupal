@@ -1,13 +1,13 @@
 package gradle.cucumber;
 
-public class ContenidoVacio extends Contenido {
+public class ParedMelamina extends Contenido {
     @Override
     public boolean esVacio() {
-        return true;
+        return false;
     }
 
     @Override
     public void interactuarCon(Bomberman bomberman, Celda celda){
-        bomberman.basicMover(celda);
+        //Bomberman queda en su lugar porque hay una pared.
     }
 }

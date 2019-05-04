@@ -11,7 +11,6 @@ public class BombermanSteps {
 
     private Bomberman bomberman;
     private Celda cell;
-    private Enemigo enemy;
 
     @Given("^Como bomberman")
     public void como_bomberman() throws Throwable {
@@ -30,7 +29,7 @@ public class BombermanSteps {
 
     @When("^Veo una celda con una pared$")
     public void veoUnaCeldaConUnaPared() throws Throwable {
-        this.cell = new Celda(new Pared());
+        this.cell = new Celda(new ParedMelamina());
     }
 
     @Then("^No me puedo mover a esa celda$")
