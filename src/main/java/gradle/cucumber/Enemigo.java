@@ -4,18 +4,15 @@ import gradle.cucumber.Celda;
 
 public class Enemigo extends Contenido{
 
-    private Celda celda;
+    public Enemigo(){}
 
-    public Enemigo(){
-
-    }
-
-    public void setCelda(Celda cell){
-        this.celda = cell;
+    @Override
+    public boolean esVacio() {
+        return false;
     }
 
     @Override
-    public boolean estaVacio() {
-        return false;
+    public void interactuarCon(Bomberman bomberman, Celda celda){
+       bomberman.morir();
     }
 }
