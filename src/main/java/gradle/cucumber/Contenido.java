@@ -4,7 +4,6 @@ import gradle.cucumber.Celda;
 
 public abstract class Contenido {
 
-    public Celda celda;
-
-    public abstract boolean estaVacio();
+    public abstract void interactuarCon(Bomberman bomberman, Celda celda);
+    public abstract boolean esVacio();
 }

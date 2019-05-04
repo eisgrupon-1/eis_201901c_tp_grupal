@@ -1,21 +1,25 @@
 package gradle.cucumber;
 
 public class Celda {
-    public Contenido content;
+    public Contenido contenido;
 
-    public Celda(Contenido content) {
-        this.content = content;
+    public Celda(Contenido contenido) {
+        this.contenido = contenido;
     }
 
     public boolean estaVacia() {
-        return this.content.estaVacio();
+        return this.contenido.esVacio();
     }
 
-    public void setContent(Contenido included) {
-        this.content = included;
+    public void interactuarCon(Bomberman bomberman){
+        contenido.interactuarCon(bomberman, this);
     }
 
-    public Contenido getContent() {
-        return this.content;
+    public void setContenido(Contenido contenido) {
+        this.contenido = contenido;
+    }
+
+    public Contenido getContenido() {
+        return this.contenido;
     }
 }
