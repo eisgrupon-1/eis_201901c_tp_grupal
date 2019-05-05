@@ -7,8 +7,8 @@ public class Enemigo extends Contenido{
     public Enemigo(){}
 
     @Override
-    public boolean esVacio() {
-        return false;
+    public Boolean esSolido() {
+        return true;
     }
 
     @Override

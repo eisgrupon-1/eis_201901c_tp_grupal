@@ -2,7 +2,7 @@ package gradle.cucumber;
 
 public class ParedAcero extends Contenido{
     @Override
-    public boolean esVacio(){ return false; }
+    public Boolean esSolido(){ return true; }
 
     @Override
     public void interactuarCon(Bomberman bomberman, Celda celda){
