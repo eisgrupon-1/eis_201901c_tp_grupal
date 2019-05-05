@@ -5,6 +5,7 @@ public class Bomberman extends Contenido{
     //Por ahora a Bomberman le importa saber donde esta.
     public Celda celdaActual;
     public Status estado;
+    public Bomba bomba;
 
     public Bomberman(){
         this.estado = new Vivo();
@@ -19,6 +20,12 @@ public class Bomberman extends Contenido{
         celda.setContenido(this);
         this.celdaActual = celda;
     }
+
+    public void equiparBomba(Bomba bomba){
+        this.bomba = bomba; //para pasar test
+    }
+
+    public void arrojarBomba(){} //para pasar tert
 
     public void morir(){
         this.estado = new Muerto();
