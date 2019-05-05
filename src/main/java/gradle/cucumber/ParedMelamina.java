@@ -2,8 +2,8 @@ package gradle.cucumber;
 
 public class ParedMelamina extends Contenido {
     @Override
-    public boolean esVacio() {
-        return false;
+    public Boolean esSolido() {
+        return true;
     }
 
     @Override

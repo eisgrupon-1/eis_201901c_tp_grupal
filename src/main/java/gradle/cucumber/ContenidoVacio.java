@@ -2,8 +2,8 @@ package gradle.cucumber;
 
 public class ContenidoVacio extends Contenido {
     @Override
-    public boolean esVacio() {
-        return true;
+    public Boolean esSolido() {
+        return false;
     }
 
     @Override
