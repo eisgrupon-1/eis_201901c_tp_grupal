@@ -17,7 +17,7 @@ public class BombermanSteps {
     public void comoBomberman() throws Throwable {
         this.miPersonaje = new Bomberman();
         //Por ahora a Bomberman le importa saber donde esta.
-        celdaOrigen = new Celda(this.miPersonaje);
+        celdaOrigen = new Celda(0, 0, this.miPersonaje);
         this.miPersonaje.celdaActual = celdaOrigen;
     }
 
@@ -25,7 +25,7 @@ public class BombermanSteps {
 
     @When("^Me intento mover a una celda vacia$")
     public void meIntentoMoverAUnaCeldaVacia() throws Throwable {
-        this.celdaDestino = new Celda(new ContenidoVacio());
+        this.celdaDestino = new Celda(0, 1, new ContenidoVacio());
         this.miPersonaje.mover(this.celdaDestino);
     }
 
@@ -39,7 +39,7 @@ public class BombermanSteps {
 
     @When("^Me intento mover a una celda con una pared de Melamina$")
     public void meIntentoMoverAUnaCeldaConUnaParedDeMelamina() throws Throwable {
-        this.celdaDestino = new Celda(new ParedMelamina());
+        this.celdaDestino = new Celda(0, 1, new ParedMelamina());
         this.miPersonaje.mover(this.celdaDestino);
     }
 
@@ -52,7 +52,7 @@ public class BombermanSteps {
 
     @When("^Me intento mover a una celda con una pared de Acero")
     public void meIntentoMoverAUnaCeldaConUnaParedDeAcero() throws Throwable {
-        this.celdaDestino = new Celda(new ParedAcero());
+        this.celdaDestino = new Celda(0, 1, new ParedAcero());
         this.miPersonaje.mover(this.celdaDestino);
     }
 
@@ -67,7 +67,7 @@ public class BombermanSteps {
 
     @When("^Me intento mover a una celda con un enemigo$")
     public void meIntentoMoverAUnaCeldaConUnEnemigo() throws Throwable {
-        this.celdaDestino = new Celda(new Enemigo());
+        this.celdaDestino = new Celda(0, 1, new Enemigo());
         this.miPersonaje.mover(this.celdaDestino);
     }
 
