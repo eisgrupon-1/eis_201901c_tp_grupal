@@ -7,8 +7,8 @@ public class Celda {
         this.contenido = contenido;
     }
 
-    public boolean estaVacia() {
-        return this.contenido.esVacio();
+    public Boolean estaVacia() {
+        return !this.contenido.esSolido();
     }
 
     public void interactuarCon(Bomberman bomberman){

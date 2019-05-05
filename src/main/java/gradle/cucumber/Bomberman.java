@@ -2,6 +2,7 @@ package gradle.cucumber;
 
 public class Bomberman extends Contenido{
 
+    //Por ahora a Bomberman le importa saber donde esta.
     public Celda celdaActual;
     public Status estado;
 
@@ -9,21 +10,14 @@ public class Bomberman extends Contenido{
         this.estado = new Vivo();
     }
 
-    public boolean esVacio() { return false; }
-
-    public boolean puedeMoverseA(Celda cell) {
-        return cell.estaVacia();
-    }
+    public Boolean esSolido() { return true; }
 
     public void mover(Celda celda){ this.estado.moverACelda(this, celda); }
 
     public void basicMover(Celda celda){
         this.celdaActual.setContenido(new ContenidoVacio());
-        this.setCelda(celda);
-    }
-
-    public void setEstado(Status estado) {
-        this.estado = estado;
+        celda.setContenido(this);
+        this.celdaActual = celda;
     }
 
     public void morir(){
@@ -34,17 +28,8 @@ public class Bomberman extends Contenido{
         return this.estado.estaMuerto();
     }
 
-    public boolean estaEnCeldaVacia() {
-        return this.celdaActual.estaVacia();
-    }
-
     public Celda getCelda() {
         return this.celdaActual;
-    }
-
-    public void setCelda(Celda celda) {
-       celda.setContenido(this);
-       this.celdaActual = celda;
     }
 
     @Override
