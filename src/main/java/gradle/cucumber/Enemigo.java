@@ -12,7 +12,7 @@ public class Enemigo extends Contenido{
     }
 
     @Override
-    public void interactuarCon(Bomberman bomberman, Celda celda){
-       bomberman.morir();
+    public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino){
+       juego.getPersonaje().morir();
     }
 }
