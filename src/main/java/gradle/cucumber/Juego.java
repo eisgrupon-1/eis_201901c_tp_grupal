@@ -46,8 +46,25 @@ public class Juego {
             contenido.tick(this);
     }
 
-    public void explotarBomba(Posicion posicion){
+    public void explotarBomba(Bomba bomba){
+        Posicion posicionOrigen = bomba.getPosicion();
 
+        for(int i = 0; i <= bomba.RANGO; i++)
+            for(int j = 0; j <= bomba.RANGO; j++) {
+                if ((i + posicionOrigen.x()) >= 0
+                        & (j + posicionOrigen.y()) >= 0
+                        & (j + i) <= bomba.RANGO) {
+                    Posicion posicion = new Posicion(i + posicionOrigen.x(), j + posicionOrigen.y());
+                    tablero.agregarContenidoA(tablero.contenidoEn(posicion).interactuarConBomba(), posicion);
+                }
+                if ((-i + posicionOrigen.x()) >= 0
+                        & (-j + posicionOrigen.y()) >= 0
+                        & (j + i) <= bomba.RANGO) {
+                    Posicion posicion = new Posicion(-i + posicionOrigen.x(), -j + posicionOrigen.y());
+                    tablero.agregarContenidoA(tablero.contenidoEn(posicion).interactuarConBomba(), posicion);
+                }
+            }
+        this.tablero.agregarContenidoA(new ContenidoVacio(), posicionOrigen);
     }
 
     //Defaults
