@@ -11,19 +11,19 @@ public class Bomba extends Contenido{
         this.posicion = posicion;
     }
 
-    public int getRango(){ return RANGO; }
+    public Posicion getPosicion(){ return posicion; }
 
     @Override
-    public Boolean esSolido() {
-        return true;
-    }
+    public Boolean esSolido() { return true; }
     @Override
     public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino){ /* Al igual que una pared no le permito al personaje moverse */ }
+    @Override
+    public Contenido interactuarConBomba(){ return this; }
     @Override
     public void tick(Juego juego){
         ticks--;
         if(ticks == 0){
-            juego.explotarBomba(posicion);
+            juego.explotarBomba(this);
         }
     }
 }

@@ -7,4 +7,6 @@ public class ContenidoVacio extends Contenido {
     }
     @Override
     public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino){ juego.basicMoverPersonajeA(destino); }
+    @Override
+    public Contenido interactuarConBomba(){ return this; }
 }
