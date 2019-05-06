@@ -5,9 +5,6 @@ public class ContenidoVacio extends Contenido {
     public Boolean esSolido() {
         return false;
     }
-
     @Override
-    public void interactuarCon(Bomberman bomberman, Celda celda){
-        bomberman.basicMover(celda);
-    }
+    public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino){ juego.basicMoverPersonajeA(destino); }
 }

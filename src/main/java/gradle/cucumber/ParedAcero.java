@@ -5,7 +5,7 @@ public class ParedAcero extends Contenido{
     public Boolean esSolido(){ return true; }
 
     @Override
-    public void interactuarCon(Bomberman bomberman, Celda celda){
+    public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino){
         //Bomberman queda en su lugar porque hay una pared.
     }
 }
