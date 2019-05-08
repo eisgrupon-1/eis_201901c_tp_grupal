@@ -16,7 +16,7 @@ Feature: Poner Bombas Bomberman
     When Arrojo una bomba cerca de enemigos y me muevo 5 pasos al Norte
     Then Destruyo los enemigos en un radio de 3 casilleros
 
-    # Punto 2.iiii
+    # Punto 2.iii
   Scenario: Bomberman pone una bomba y destruye paredes de Acero
     Given Como bomberman que pone bombas
     When Arrojo una bomba cerca de paredes de acero y me muevo 5 pasos al Norte
