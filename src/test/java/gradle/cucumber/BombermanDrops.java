@@ -14,10 +14,10 @@ public class BombermanDrops {
     private Bomberman miPersonaje;
     private Posicion posicionDestino;
     private Posicion posicionOrigen;
-    private Posicion posicionPared1;
-    private Posicion posicionPared2;
-    private Posicion posicionPared3;
-    private Posicion posicionPared4;
+    private Posicion posicion1;
+    private Posicion posicion2;
+    private Posicion posicion3;
+    private Posicion posicion4;
 
     @Given("^Como bomberman que pone bombas")
     public void comoBombermanQuePoneBombas() throws Throwable {
@@ -26,20 +26,20 @@ public class BombermanDrops {
         this.miPersonaje = juego.getPersonaje();
         this.posicionOrigen = this.juego.getPosicionDelPersonaje();
         this.posicionDestino = this.posicionOrigen.getPosicionHacia(Direccion.NORTE);
-        this.posicionPared1 = this.posicionOrigen.getPosicionHacia(Direccion.ESTE);
-        this.posicionPared2 = this.posicionPared1.getPosicionHacia(Direccion.ESTE);
-        this.posicionPared3 = this.posicionPared2.getPosicionHacia(Direccion.ESTE);
-        this.posicionPared4 = this.posicionPared3.getPosicionHacia(Direccion.ESTE);
+        this.posicion1 = this.posicionOrigen.getPosicionHacia(Direccion.ESTE);
+        this.posicion2 = this.posicion1.getPosicionHacia(Direccion.ESTE);
+        this.posicion3 = this.posicion2.getPosicionHacia(Direccion.ESTE);
+        this.posicion4 = this.posicion3.getPosicionHacia(Direccion.ESTE);
     }
 
     //Punto 2.i.
 
     @When("^Arrojo una bomba cerca de paredes de melamina y me muevo 5 pasos al Norte$")
     public void arrojoUnaBombaCercaDeParedesDeMelaminaYMeMuevoCincoPasosAlNorte() throws Throwable {
-        tablero.agregarContenidoA(new ParedMelamina(), posicionPared1);
-        tablero.agregarContenidoA(new ParedMelamina(), posicionPared2);
-        tablero.agregarContenidoA(new ParedMelamina(), posicionPared3);
-        tablero.agregarContenidoA(new ParedMelamina(), posicionPared4);
+        tablero.agregarContenidoA(new ParedMelamina(), posicion1);
+        tablero.agregarContenidoA(new ParedMelamina(), posicion2);
+        tablero.agregarContenidoA(new ParedMelamina(), posicion3);
+        tablero.agregarContenidoA(new ParedMelamina(), posicion4);
         this.juego.arrojarBombaYMoverPersonajeHacia(Direccion.NORTE);
         this.juego.moverPersonajeHacia(Direccion.NORTE);
         this.juego.moverPersonajeHacia(Direccion.NORTE);
@@ -49,36 +49,54 @@ public class BombermanDrops {
 
     @Then("^Destruyo las paredes de melamina en un radio de 3 casilleros$")
     public void destruyoLasParedesDeMelaminaEnUnRadioDe3Casilleros() throws Throwable {
-        assertFalse(this.tablero.contenidoEn(posicionPared1).esSolido());
-        assertFalse(this.tablero.contenidoEn(posicionPared2).esSolido());
-        assertFalse(this.tablero.contenidoEn(posicionPared3).esSolido());
-        assertTrue(this.tablero.contenidoEn(posicionPared4).esSolido());
+        assertFalse(this.tablero.contenidoEn(posicion1).esSolido());
+        assertFalse(this.tablero.contenidoEn(posicion2).esSolido());
+        assertFalse(this.tablero.contenidoEn(posicion3).esSolido());
+        assertTrue(this.tablero.contenidoEn(posicion4).esSolido());
     }
 
     //Punto 2.ii.
-/*
-    @When("^Arrojo una bomba Cerca de un enemigo$")
-    public void arrojoUnaBomba() throws Throwable {
-        this.enemigo = new Enemigo();
-        this.celda1 = new Celda(2, 4, this.enemigo);
-        this.miPersonaje.arrojarBomba();
+
+    @When("^Arrojo una bomba cerca de enemigos y me muevo 5 pasos al Norte$")
+    public void arrojoUnaBombaCercaDeEnemigosYMeMuevoCincoPasosAlNorte() throws Throwable {
+        tablero.agregarContenidoA(new Enemigo(), posicion1);
+        tablero.agregarContenidoA(new Enemigo(), posicion2);
+        tablero.agregarContenidoA(new Enemigo(), posicion3);
+        tablero.agregarContenidoA(new Enemigo(), posicion4);
+        this.juego.arrojarBombaYMoverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+    }
+    @Then("^Destruyo los enemigos en un radio de 3 casilleros$")
+    public void destruyoLosEnemigosEnUnRadioDe3Casilleros() throws Throwable {
+        assertFalse(this.tablero.contenidoEn(posicion1).esSolido());
+        assertFalse(this.tablero.contenidoEn(posicion2).esSolido());
+        assertFalse(this.tablero.contenidoEn(posicion3).esSolido());
+        assertTrue(this.tablero.contenidoEn(posicion4).esSolido());
     }
 
-    @Then("^mato al enemigo que entre en contacto con la onda expansiva")
-    public void matoAlEnemigoQueEntreEnContactoConLaOndaExpansiva() throws Throwable {
-        assertFalse(this.celda1.getContenido().esSolido());
+    //Punto 2.iii.
+
+    @When("^Arrojo una bomba cerca de paredes de acero y me muevo 5 pasos al Norte$")
+    public void arrojoUnaBombaCercaDeParedesDeAceroYMeMuevoCincoPasosAlNorte() throws Throwable {
+        tablero.agregarContenidoA(new ParedAcero(), posicion1);
+        tablero.agregarContenidoA(new ParedAcero(), posicion2);
+        tablero.agregarContenidoA(new ParedAcero(), posicion3);
+        tablero.agregarContenidoA(new ParedAcero(), posicion4);
+        this.juego.arrojarBombaYMoverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.juego.moverPersonajeHacia(Direccion.NORTE);
     }
 
-    //Punto 1.iii.
-
-    @When("^Arrojo una bomba cerca de una pared de acero$")
-    public void arrojoUnaBombaCercaDeUnaParedDeAcero() throws Throwable {
-        this.celda1 = new Celda(2, 4, new ParedAcero());
-        this.miPersonaje.arrojarBomba();
+    @Then("^No destruyo las paredes de acero$")
+    public void destruyoLasParedesDeAceroEnUnRadioDe3Casilleros() throws Throwable {
+        assertTrue(this.tablero.contenidoEn(posicion1).esSolido());
+        assertTrue(this.tablero.contenidoEn(posicion2).esSolido());
+        assertTrue(this.tablero.contenidoEn(posicion3).esSolido());
+        assertTrue(this.tablero.contenidoEn(posicion4).esSolido());
     }
-
-    @Then("^No destruyo paredes de acero$")
-    public void noDestruyoParedesDeAcero() throws Throwable {
-        assertTrue(this.celda1.getContenido().esSolido());
-    }*/
 }
