@@ -1,24 +1,29 @@
+
+# Bomberman
+
+[![Build Status](https://travis-ci.org/eisgrupon-1/eis_201901c_tp_grupal.svg?branch=master)](https://travis-ci.org/eisgrupon-1/eis_201901c_tp_grupal)
+
 ## Objetivos del TP grupal
-tEjercitar la escritura de código en ambientes colaborativos utilizando una metodología de diseño guiada por pruebas ejecutanto un flujo de trabajo que facilite la integración frecuente de código.
+Ejercitar la escritura de código en ambientes colaborativos utilizando una metodología de diseño guiada por pruebas ejecutanto un flujo de trabajo que facilite la integración frecuente de código.
 
 ### Lo que se espera
 
 0. Leer sugerencias.
-1. Implementar ATDD como técnica de diseño.
+1. Implementar ATDD como técnica de diseño.  
 2. Implementar FeatureBranch + Forking como flujo de trabajo, creando para esto un repositorio público con cualquier servicio de versionado de fuentes (Bitbucket, GitHub, etc.)
 3. Cada cambio necesita ser integrado con la mayor frecuencia posiblie, utilizando para la verificación de este un servicio de CI (Continous Integration).
 4. Implementar una medición de cobertura desde el **momento inicial del desarrollo**. 
 5. Generar el modelo tal que cumpla con las _Pruebas de Aceptación_ para el problema listado en la próxima sección (Descripción del Problema).
-6. Completar tados de los integrantes del grupo utilizando este archivo (```README.md```)
+6. Completar todos de los integrantes del grupo utilizando este archivo (```README.md```)
 
 ### Integrantes
 
-Nro | Nombre | Legajo | Mail
-----|--------|--------|------
-1   |        |        |
-2   |        |        |
-3   |        |        |
-4   |        |        |
+Nro | Nombre                | Legajo       | Mail
+----|-----------------------|--------------|---------
+1   |    Oscar Lescano      |              | oscar_master93@hotmail.com
+2   |    Juan  Escalada     |              | jf.escalada92@gmail.com
+3   |    Camila Pesci       |              | camila.pesci.a@gmail.com 
+4   |    Matias Rodriguez   |              | Matias_1412@hotmail.com
     
 ### Entrega
 
@@ -61,8 +66,8 @@ Programación orientada a objetos + ATDD
 #### Referencias:
 
 - Servidor de integración continua: [Travis][1]
-- Cobertura de código: [Codcov][3]
-- [Bomberman][2]
+- Cobertura de código: [Codcov][2]
+- [Bomberman][3]
 
 ### Sugerencias:
 
@@ -74,5 +79,5 @@ Programación orientada a objetos + ATDD
 
 
 [1]: https://travis-ci.org/
-[3]: https://codecov.io/gh
-[2]: http://bomberman.wikia.com/wiki/Bagura
+[2]: https://codecov.io/gh
+[3]: http://bomberman.wikia.com/wiki/Bagura
