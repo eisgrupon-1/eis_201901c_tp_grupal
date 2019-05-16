@@ -8,10 +8,11 @@ Ejercitar la escritura de código en ambientes colaborativos utilizando una meto
 
 ### Lo que se espera
 
+0. Leer sugerencias.
 1. Implementar ATDD como técnica de diseño.  
 2. Implementar FeatureBranch + Forking como flujo de trabajo, creando para esto un repositorio público con cualquier servicio de versionado de fuentes (Bitbucket, GitHub, etc.)
 3. Cada cambio necesita ser integrado con la mayor frecuencia posiblie, utilizando para la verificación de este un servicio de CI (Continous Integration).
-4. Implementar una medición de cobertura. 
+4. Implementar una medición de cobertura desde el **momento inicial del desarrollo**. 
 5. Generar el modelo tal que cumpla con las _Pruebas de Aceptación_ para el problema listado en la próxima sección (Descripción del Problema).
 6. Completar todos de los integrantes del grupo utilizando este archivo (```README.md```)
 
@@ -26,7 +27,7 @@ Nro | Nombre                | Legajo       | Mail
     
 ### Entrega
 
-24 / 10 / 2018
+26 / 5 / 2019
 
 ## Descripción del Problema
 
@@ -67,6 +68,15 @@ Programación orientada a objetos + ATDD
 - Servidor de integración continua: [Travis][1]
 - Cobertura de código: [Codcov][2]
 - [Bomberman][3]
+
+### Sugerencias:
+
+0. Haga el fork del repo este y establezcan el repo que oficiará como ```upstream``` (no puede ser este mismo repo).
+1. Implementar CI en el primer o segundo commit.
+2. Completar el README.md.
+3. **SEPA que no habrá reentrega ni entregas tardías**
+4. Verificar que el comando ejecutado por el CI **efectivamente** corre las pruebas.
+
 
 [1]: https://travis-ci.org/
 [2]: https://codecov.io/gh
