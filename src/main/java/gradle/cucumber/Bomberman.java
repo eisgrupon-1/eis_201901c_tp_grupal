@@ -1,11 +1,17 @@
 package gradle.cucumber;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bomberman extends Contenido{
+
+    private List<Poder> poderes;
 
     //Por ahora a Bomberman le importa saber donde esta.
     public EstadoDelPersonaje estado;
 
     public Bomberman(){
+        this.poderes= new ArrayList<>();
         this.estado = new Vivo();
     }
 
@@ -23,5 +29,13 @@ public class Bomberman extends Contenido{
     public Contenido interactuarConBomba(){
         this.morir();
         return this;
+    }
+
+    public List<Poder> getPoderes() {
+        return poderes;
+    }
+
+    public void addPoder(Poder poder) {
+        this.poderes.add(poder);
     }
 }
