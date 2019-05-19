@@ -99,4 +99,39 @@ public class BombermanDrops {
         assertTrue(this.tablero.contenidoEn(posicion3).esSolido());
         assertTrue(this.tablero.contenidoEn(posicion4).esSolido());
     }
+
+    //Punto 3.
+    @When("^Arroja una bomba cerca de bagulaa y lo mata$")
+    public void arrojarBombaYMatarABagulaa() throws Throwable{
+
+    }
+
+    @Then ("^Bomberman obtiene poder lanza bombas$")
+    public void obtenerPoderLanzaBombas() throws Throwable{
+
+    }
+
+    //Punto 4.
+
+    @When("^Arroja una bomba cerca de ProtoMaxJr y lo mata$")
+    public void arrojarBombaYMatarAProtoMaxJr() throws Throwable{
+
+    }
+    @Then ("^Bomberman obtiene poder SaltarTodoTipoDePared$")
+    public void obtenerPoderSaltarTodoTipoDePared() throws Throwable{
+
+    }
+
+    //Punto 5.
+
+    @When("^Arroja una bomba cerca de ProtoMaxUnits y lo mata$")
+    public void arrojarBombaYMatarAProtoMaxUnits() throws Throwable{
+
+    }
+    @Then ("^Bomberman obtiene poder SaltarOlanzarBombas$")
+    public void obtenerPoderSaltarOlanzarBombas() throws Throwable{
+
+    }
+
+
 }
