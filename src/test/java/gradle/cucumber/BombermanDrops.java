@@ -11,9 +11,6 @@ public class BombermanDrops {
 
     private Juego juego;
     private Tablero tablero;
-    private Bomberman miPersonaje;
-    private Posicion posicionDestino;
-    private Posicion posicionOrigen;
     private Posicion posicion1;
     private Posicion posicion2;
     private Posicion posicion3;
@@ -23,10 +20,8 @@ public class BombermanDrops {
     public void comoBombermanQuePoneBombas() throws Throwable {
         this.juego = new Juego();
         this.tablero = this.juego.getTablero();
-        this.miPersonaje = juego.getPersonaje();
-        this.posicionOrigen = this.juego.getPosicionDelPersonaje();
-        this.posicionDestino = this.posicionOrigen.getPosicionHacia(Direccion.NORTE);
-        this.posicion1 = this.posicionOrigen.getPosicionHacia(Direccion.ESTE);
+        Posicion posicionOrigen = this.juego.getPosicionDelPersonaje();
+        this.posicion1 = posicionOrigen.getPosicionHacia(Direccion.ESTE);
         this.posicion2 = this.posicion1.getPosicionHacia(Direccion.ESTE);
         this.posicion3 = this.posicion2.getPosicionHacia(Direccion.ESTE);
         this.posicion4 = this.posicion3.getPosicionHacia(Direccion.ESTE);
@@ -36,15 +31,7 @@ public class BombermanDrops {
 
     @When("^Arrojo una bomba cerca de paredes de melamina y me muevo 5 pasos al Norte$")
     public void arrojoUnaBombaCercaDeParedesDeMelaminaYMeMuevoCincoPasosAlNorte() throws Throwable {
-        tablero.agregarContenidoA(new ParedMelamina(), posicion1);
-        tablero.agregarContenidoA(new ParedMelamina(), posicion2);
-        tablero.agregarContenidoA(new ParedMelamina(), posicion3);
-        tablero.agregarContenidoA(new ParedMelamina(), posicion4);
-        this.juego.arrojarBombaYMoverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.agregarContenidoEn4PosicionesTirarBombaYMoverse(new ParedMelamina());
     }
 
     @Then("^Destruyo las paredes de melamina en un radio de 3 casilleros$")
@@ -59,16 +46,9 @@ public class BombermanDrops {
 
     @When("^Arrojo una bomba cerca de enemigos y me muevo 5 pasos al Norte$")
     public void arrojoUnaBombaCercaDeEnemigosYMeMuevoCincoPasosAlNorte() throws Throwable {
-        tablero.agregarContenidoA(new Enemigo(), posicion1);
-        tablero.agregarContenidoA(new Enemigo(), posicion2);
-        tablero.agregarContenidoA(new Enemigo(), posicion3);
-        tablero.agregarContenidoA(new Enemigo(), posicion4);
-        this.juego.arrojarBombaYMoverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.agregarContenidoEn4PosicionesTirarBombaYMoverse(new Enemigo());
     }
+
     @Then("^Destruyo los enemigos en un radio de 3 casilleros$")
     public void destruyoLosEnemigosEnUnRadioDe3Casilleros() throws Throwable {
         assertFalse(this.tablero.contenidoEn(posicion1).esSolido());
@@ -81,15 +61,7 @@ public class BombermanDrops {
 
     @When("^Arrojo una bomba cerca de paredes de acero y me muevo 5 pasos al Norte$")
     public void arrojoUnaBombaCercaDeParedesDeAceroYMeMuevoCincoPasosAlNorte() throws Throwable {
-        tablero.agregarContenidoA(new ParedAcero(), posicion1);
-        tablero.agregarContenidoA(new ParedAcero(), posicion2);
-        tablero.agregarContenidoA(new ParedAcero(), posicion3);
-        tablero.agregarContenidoA(new ParedAcero(), posicion4);
-        this.juego.arrojarBombaYMoverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
-        this.juego.moverPersonajeHacia(Direccion.NORTE);
+        this.agregarContenidoEn4PosicionesTirarBombaYMoverse(new ParedAcero());
     }
 
     @Then("^No destruyo las paredes de acero$")
@@ -103,22 +75,36 @@ public class BombermanDrops {
     //Punto 3.
     @When("^Arroja una bomba cerca de bagulaa y lo mata$")
     public void arrojarBombaYMatarABagulaa() throws Throwable{
-
+        this.agregarEnemigoTirarBombaYMoverse(new Bagulaa());
     }
 
-    @Then ("^Bomberman obtiene poder lanza bombas$")
-    public void obtenerPoderLanzaBombas() throws Throwable{
+    @Then ("^Bomberman obtiene el poder que tiro el enemigo muerto$")
+    public void obtenerPoder() throws Throwable{
+        this.moverN(Direccion.SUR, 5);
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        assertTrue(this.juego.bombermanTienePoder());
+    }
 
+    @Then ("^Bomberman puede lanzar Bombas$")
+    public void bomberbanPuedeLanzarBombas() throws Throwable{
+        Bomba bomba = this.juego.arrojarBomba(Direccion.ESTE);
+        assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion1));
+        assertTrue(this.sonMismaPosicion(bomba.getPosicion(),this.posicion3));
+        this.tablero.agregarContenidoA(new Enemigo(), this.posicion3);
+        this.juego.moverPersonajeHacia(Direccion.OESTE);
+        this.moverN(Direccion.NORTE, 4);
+        assertFalse(this.tablero.contenidoEn(posicion3).esSolido());
     }
 
     //Punto 4.
 
     @When("^Arroja una bomba cerca de ProtoMaxJr y lo mata$")
     public void arrojarBombaYMatarAProtoMaxJr() throws Throwable{
-
+        this.agregarEnemigoTirarBombaYMoverse(new ProtoMaxJr());
     }
-    @Then ("^Bomberman obtiene poder SaltarTodoTipoDePared$")
-    public void obtenerPoderSaltarTodoTipoDePared() throws Throwable{
+
+    @Then ("^Bomberman puede saltar todo tipo de pared$")
+    public void bomberbanPuedeSaltarTodoTipoDePared() throws Throwable{
 
     }
 
@@ -126,12 +112,40 @@ public class BombermanDrops {
 
     @When("^Arroja una bomba cerca de ProtoMaxUnits y lo mata$")
     public void arrojarBombaYMatarAProtoMaxUnits() throws Throwable{
-
-    }
-    @Then ("^Bomberman obtiene poder SaltarOlanzarBombas$")
-    public void obtenerPoderSaltarOlanzarBombas() throws Throwable{
-
+        this.agregarEnemigoTirarBombaYMoverse(new ProtoMaxUnits());
     }
 
+    @Then ("^Bomberman puede saltar todo tipo de pared y lanzar bombas$")
+    public void bomberbanPuedeSaltarTodoTipoDeParedYLanzarBombas() throws Throwable{
 
+    }
+
+    //Funciones privadas
+
+    private Boolean sonMismaPosicion(Posicion pos1, Posicion pos2){
+        return pos1.x() == pos2.x() && pos1.y() == pos2.y();
+    }
+
+    private void agregarContenidoEn4PosicionesTirarBombaYMoverse(Contenido contenido) {
+        tablero.agregarContenidoA(contenido, posicion1);
+        tablero.agregarContenidoA(contenido, posicion2);
+        tablero.agregarContenidoA(contenido, posicion3);
+        tablero.agregarContenidoA(contenido, posicion4);
+        this.juego.arrojarBomba();
+        this.moverN(Direccion.NORTE, 5);
+    }
+
+    private void agregarEnemigoTirarBombaYMoverse(Enemigo enemigo){
+        tablero.agregarContenidoA(enemigo, posicion1);
+        assertTrue(this.tablero.contenidoEn(posicion1).esSolido());
+        this.juego.arrojarBomba();
+        this.moverN(Direccion.NORTE, 5);
+        assertFalse(this.tablero.contenidoEn(posicion1).esSolido());
+    }
+
+    private void moverN(Direccion direccion, int cantidad){
+        for(int i = 0; i < cantidad; i++){
+            this.juego.moverPersonajeHacia(direccion);
+        }
+    }
 }

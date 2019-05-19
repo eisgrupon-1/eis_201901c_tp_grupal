@@ -1,31 +1,9 @@
 package gradle.cucumber;
 
-public class ProtoMaxJr extends Contenido{
-
-    public EstadoDelPersonaje estado;
-
-    public ProtoMaxJr(){
-        this.estado = new Vivo();
-    }
-    @Override
-    public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino) {
-
-    }
-
+public class ProtoMaxJr extends Enemigo{
     @Override
     public Contenido interactuarConBomba() {
-        this.morir();
-        return new SaltarOlanzarBombas();
+        return new SaltarTodoTipoDePared();
     }
-
-
-    @Override
-    public Boolean esSolido() {
-        return false;
-    }
-
-    public Boolean estaMuerto(){ return this.estado.estaMuerto(); }
-
-    public void morir(){ this.estado = new Muerto(); }
 }
 
