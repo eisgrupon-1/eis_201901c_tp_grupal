@@ -12,7 +12,6 @@ public class Bomba extends Contenido{
     }
 
     public Posicion getPosicion(){ return posicion; }
-
     @Override
     public Boolean esSolido() { return true; }
     @Override

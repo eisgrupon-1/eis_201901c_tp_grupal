@@ -18,6 +18,15 @@ public class Posicion {
         return posicion.getValue();
     }
 
+    @Override
+    public boolean equals(Object other){
+        if (other == null) return false;
+        if (other == this) return true;
+        if (!(other instanceof Posicion))return false;
+        Posicion otherPosition = (Posicion)other;
+        return this.x() == otherPosition.x() && this.y() == otherPosition.y();
+    }
+
     public Posicion getPosicionHacia(Direccion direccion){
         Posicion modifier = this.valorParaDireccion(direccion);
         return new Posicion(this.x() + modifier.x(), this.y() + modifier.y());
