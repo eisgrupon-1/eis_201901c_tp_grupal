@@ -40,7 +40,7 @@ public class Juego {
 
     public void moverPersonajeHacia(Direccion direccion){ this.moverPersonajeA(this.posicionDelPersonaje.getPosicionHacia(direccion)); }
 
-    private void moverPersonajeA(Posicion posicionDestino){
+    public void moverPersonaje(Posicion posicionDestino){
         if(this.personaje.puedeMoverse())
             this.tablero.contenidoEn(posicionDestino).interactuarConPersonajeMoviendoseA(this, posicionDestino);
     }
@@ -49,6 +49,10 @@ public class Juego {
         this.tablero.agregarContenidoA(new ContenidoVacio(), this.posicionDelPersonaje);
         this.posicionDelPersonaje = this.tablero.agregarContenidoA(this.personaje, posicionDestino);
         this.tick();
+    }
+
+    public void moverPersonajeA(Posicion posicionDestino){
+        this.poder.moverPersonaje(this, posicionDestino);
     }
 
     private void tick(){

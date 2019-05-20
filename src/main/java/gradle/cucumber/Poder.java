@@ -16,6 +16,8 @@ public abstract class Poder extends Contenido{
 
     public Boolean esPoderDefault(){ return false; }
 
+    public abstract void moverPersonaje(Juego juego, Posicion posicion);
+
     public abstract Posicion posicionParaLaBomba(Posicion posicion, Direccion direccion);
 
 }
