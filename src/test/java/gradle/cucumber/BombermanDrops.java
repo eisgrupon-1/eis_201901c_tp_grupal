@@ -90,10 +90,6 @@ public class BombermanDrops {
         Bomba bomba = this.juego.arrojarBomba(Direccion.ESTE);
         assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion1));
         assertTrue(this.sonMismaPosicion(bomba.getPosicion(),this.posicion3));
-        this.tablero.agregarContenidoA(new Enemigo(), this.posicion3);
-        this.juego.moverPersonajeHacia(Direccion.OESTE);
-        this.moverN(Direccion.NORTE, 4);
-        assertFalse(this.tablero.contenidoEn(posicion3).esSolido());
     }
 
     //Punto 4.
