@@ -6,5 +6,10 @@ public class PoderDefault extends Poder{
     public Boolean esPoderDefault(){ return true; }
 
     @Override
+    public void moverPersonaje(Juego juego, Posicion posicion) {
+        juego.moverPersonaje(posicion);
+    }
+
+    @Override
     public Posicion posicionParaLaBomba(Posicion posicion, Direccion direccion){ return posicion; };
 }

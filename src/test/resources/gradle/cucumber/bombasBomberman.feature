@@ -28,8 +28,8 @@ Feature: Poner Bombas Bomberman
   Scenario: Bomberman suelta una bomba y muere Bagulaa
     Given Como bomberman que pone bombas
     When Arroja una bomba cerca de bagulaa y lo mata
-    And Bomberman obtiene el poder que tiro el enemigo muerto
-    Then Bomberman puede lanzar Bombas
+    Then Bomberman obtiene el poder que tiro el enemigo muerto
+    And Bomberman puede lanzar Bombas
 
 # ATDD 4
 
@@ -37,8 +37,8 @@ Feature: Poner Bombas Bomberman
   Scenario: Bomberman suelta una bomba y muere ProtoMaxJr
     Given Como bomberman que pone bombas
     When Arroja una bomba cerca de ProtoMaxJr y lo mata
-    And Bomberman obtiene el poder que tiro el enemigo muerto
-    Then Bomberman puede saltar todo tipo de pared
+    Then Bomberman obtiene el poder que tiro el enemigo muerto
+    And Bomberman puede saltar todo tipo de pared
 
 
 # ATDD 5

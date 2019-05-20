@@ -104,8 +104,13 @@ public class BombermanDrops {
     }
 
     @Then ("^Bomberman puede saltar todo tipo de pared$")
-    public void bomberbanPuedeSaltarTodoTipoDePared() throws Throwable{
-
+    public void bombermanPuedeSaltarTodoTipoDePared() throws Throwable{
+        this.tablero.agregarContenidoA(new ParedAcero(), this.posicion3);
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion3));
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion4));
     }
 
     //Punto 5.
