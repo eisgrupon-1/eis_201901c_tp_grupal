@@ -90,10 +90,6 @@ public class BombermanDrops {
         Bomba bomba = this.juego.arrojarBomba(Direccion.ESTE);
         assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion1));
         assertTrue(this.sonMismaPosicion(bomba.getPosicion(),this.posicion3));
-        this.tablero.agregarContenidoA(new Enemigo(), this.posicion3);
-        this.juego.moverPersonajeHacia(Direccion.OESTE);
-        this.moverN(Direccion.NORTE, 4);
-        assertFalse(this.tablero.contenidoEn(posicion3).esSolido());
     }
 
     //Punto 4.
@@ -104,8 +100,13 @@ public class BombermanDrops {
     }
 
     @Then ("^Bomberman puede saltar todo tipo de pared$")
-    public void bomberbanPuedeSaltarTodoTipoDePared() throws Throwable{
-
+    public void bombermanPuedeSaltarTodoTipoDePared() throws Throwable{
+        this.tablero.agregarContenidoA(new ParedAcero(), this.posicion3);
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion3));
+        this.juego.moverPersonajeHacia(Direccion.ESTE);
+        assertTrue(this.sonMismaPosicion(this.juego.getPosicionDelPersonaje(), this.posicion4));
     }
 
     //Punto 5.
