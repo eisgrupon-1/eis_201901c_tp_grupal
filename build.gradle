@@ -13,20 +13,15 @@ configurations {
 
 task cucumber() {
     dependsOn assemble, compileTestJava
-    jacoco {
-        append = false
-        destinationFile = file("$buildDir/results/jacoco/cucumber.exec")
-    }
     doLast {
         javaexec {
+            def jacocoAgent = zipTree(configurations.jacocoAgent.singleFile).filter { it.name == "jacocoagent.jar" }.singleFile
             main = "cucumber.api.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
+            args = ["-javaagent:$jacocoAgent=destfile=$buildDir/results/jacoco/cucumber.exec,append=false",'--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
         }
     }
 }
-
-
 
 dependencies {
     testCompile 'org.assertj:assertj-core:3.9.0'
@@ -50,21 +45,17 @@ jacoco {
 }
 
 jacocoTestReport {
-    executionData = files("$buildDir/results/jacoco/test.exec", "$buildDir/results/jacoco/cucumber.exec")
     reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination "$buildDir/reports/jacoco"
+        xml.enabled true
+        html.enabled true
     }
-    dependsOn test
-    dependsOn "cucumber"
 }
 
 check.dependsOn jacocoTestReport
 
 junitPlatformTest {
     jacoco {
-        destinationFile = file("$buildDir/jacoco/test.exec")
+        destinationFile = file("$buildDir/jacoco/cucumber.exec")
     }
 }
 
