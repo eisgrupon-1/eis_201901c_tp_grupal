@@ -46,9 +46,11 @@ jacoco {
 }
 
 jacocoTestReport {
+    executionData = files("$buildDir/results/jacoco/cucumber.exec")
     reports {
-        xml.enabled true
-        html.enabled true
+        xml.enabled false
+        csv.enabled false
+        html.destination "$buildDir/reports/jacoco"
     }
 }
 
