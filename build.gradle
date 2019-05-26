@@ -16,7 +16,7 @@ task cucumber() {
     doLast {
         javaexec {
             def jacocoAgent = zipTree(configurations.jacocoAgent.singleFile).filter { it.name == "jacocoagent.jar" }.singleFile
-            jvmArgs = ["-javaagent:$jacocoAgent=destfile=$buildDir/results/jacoco/cucumber.exec,append=false"]
+            jvmArgs = ["-javaagent:$jacocoAgent=destfile=$buildDir/jacoco/cucumber.exec,append=false"]
             main = "cucumber.api.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
@@ -46,7 +46,7 @@ jacoco {
 }
 
 jacocoTestReport {
-    executionData = files("$buildDir/results/jacoco/cucumber.exec")
+    executionData = files("$buildDir/jacoco/cucumber.exec")
     reports {
         xml.enabled false
         csv.enabled false
