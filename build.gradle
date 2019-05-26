@@ -46,7 +46,7 @@ jacoco {
 }
 
 jacocoTestReport {
-    executionData = files("$buildDir/jacoco/cucumber.exec")
+    executionData = files("$buildDir/jacoco/test.exec", "$buildDir/jacoco/cucumber.exec")
     reports {
         xml.enabled true
         csv.enabled true
@@ -57,7 +57,7 @@ check.dependsOn jacocoTestReport
 
 junitPlatformTest {
     jacoco {
-        destinationFile = file("$buildDir/results/jacoco/cucumber.exec")
+        destinationFile = file("$buildDir/results/jacoco/test.exec")
     }
 }
 
