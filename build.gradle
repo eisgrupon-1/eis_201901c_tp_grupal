@@ -56,7 +56,7 @@ check.dependsOn jacocoTestReport
 
 junitPlatformTest {
     jacoco {
-        destinationFile = file("$buildDir/jacoco/cucumber.exec")
+        destinationFile = file("$buildDir/results/jacoco/cucumber.exec")
     }
 }
 
