@@ -48,8 +48,8 @@ jacoco {
 jacocoTestReport {
     executionData = files("$buildDir/jacoco/cucumber.exec")
     reports {
-        xml.enabled false
-        csv.enabled false
+        xml.enabled true
+        csv.enabled true
     }
 }
 
