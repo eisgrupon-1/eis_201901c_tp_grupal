@@ -18,7 +18,7 @@ public class Bomba extends Contenido{
     public void interactuarConPersonajeMoviendoseA(Juego juego, Posicion destino){ /* Al igual que una pared no le permito al personaje moverse */ }
     @Override
     public Contenido interactuarConBomba(){ return this; }
-    @Override
+
     public void tick(Juego juego){
         ticks--;
         if(ticks == 0){

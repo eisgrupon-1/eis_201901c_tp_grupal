@@ -4,10 +4,6 @@ public class Celda {
     public Contenido contenido;
 
     public Celda(Contenido contenido) { this.contenido = contenido; }
-
-    public Boolean estaVacia() {
-        return !this.contenido.esSolido();
-    }
     public Contenido getContenido() {
         return this.contenido;
     }
