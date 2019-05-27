@@ -81,6 +81,7 @@ public class BombermanDrops {
     @Then ("^Bomberman obtiene el poder que tiro el enemigo muerto$")
     public void obtenerPoder() throws Throwable{
         this.moverN(Direccion.SUR, 5);
+        assertFalse(this.juego.bombermanTienePoder());
         this.juego.moverPersonajeHacia(Direccion.ESTE);
         assertTrue(this.juego.bombermanTienePoder());
     }
