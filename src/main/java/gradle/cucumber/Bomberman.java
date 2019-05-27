@@ -30,12 +30,4 @@ public class Bomberman extends Contenido{
         this.morir();
         return this;
     }
-
-    public List<Poder> getPoderes() {
-        return poderes;
-    }
-
-    public void addPoder(Poder poder) {
-        this.poderes.add(poder);
-    }
 }

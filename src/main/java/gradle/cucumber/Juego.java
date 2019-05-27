@@ -8,7 +8,7 @@ public class Juego {
     private Tablero tablero;
     private Bomberman personaje;
     private Posicion posicionDelPersonaje;
-    private List<Contenido> contenidosConTick;
+    private List<Bomba> contenidosConTick;
     private Poder poder;
 
     public Juego(){
@@ -56,7 +56,7 @@ public class Juego {
     }
 
     private void tick(){
-        for(Contenido contenido : this.contenidosConTick)
+        for(Bomba contenido : this.contenidosConTick)
             contenido.tick(this);
     }
 

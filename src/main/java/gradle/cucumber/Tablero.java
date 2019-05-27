@@ -20,9 +20,4 @@ public class Tablero {
         return celdas[posicion.x()][posicion.y()].getContenido();
     }
 
-
-    public int distanciaEntreDosPosiciones(Posicion posicion1, Posicion posicion2){
-        double distancia = Math.sqrt(Math.pow(posicion1.x() - posicion2.x(), 2) + Math.pow(posicion1.y() - posicion2.y(), 2));
-        return (int)distancia;
-    }
 }
